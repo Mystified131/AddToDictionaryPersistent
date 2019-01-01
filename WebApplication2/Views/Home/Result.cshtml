@@ -1,0 +1,19 @@
+﻿@model WebApplication2.ViewModels.ResultViewModel
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h2>Resulting Dictionary</h2>
+
+<br />
+
+<ul>
+    @foreach (var item in Model.TheDictionary)
+    {
+
+        <li>@item.Keyelement : @item.Valueelement</li>
+
+
+    }
+</ul>
