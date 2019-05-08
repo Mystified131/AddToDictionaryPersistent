@@ -308,6 +308,45 @@ namespace WebApplication2.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Shuffle()
+        {
+            List<Dictelement> TheDictionary = context.Dictelements.ToList();
+
+            if (TheDictionary.Count > 0)
+            {
+                ShuffleViewModel shuffleViewModel = new ShuffleViewModel();
+
+                var ShuffledList = TheDictionary.OrderBy(a => Guid.NewGuid()).ToList();
+
+                shuffleViewModel.ShuffledDict = ShuffledList;
+
+                return View(shuffleViewModel);
+            }
+
+            else
+            {
+                return Redirect("/");
+            }
+        }
+
+
+        public IActionResult Delete()
+        {
+
+            List<Dictelement> TheDictionary = context.Dictelements.ToList();
+
+            foreach(Dictelement elem in TheDictionary)
+            {
+                context.Remove(elem);
+
+
+
+            }
+
+            context.SaveChanges();
+            return Redirect("/");
+        }
     }
 
 }

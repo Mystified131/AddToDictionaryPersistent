@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "Shuffle";
+}
+
+<h2>Shuffled</h2>
+
+
+<br />
+
+
+<ul>
+    @foreach (var item in Model.ShuffledDict)
+    {
+
+        <li>@item.Keyelement : @item.Valueelement</li>
+
+
+    }
+</ul>
